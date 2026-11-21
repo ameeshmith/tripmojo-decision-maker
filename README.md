@@ -116,9 +116,16 @@ None.
 
 ## Known failures
 
-_To be filled in after running the holdout set: which cases fail, for which model, and why._
+Both models got all 41 dev cases right. Every failure below comes from the holdout set. Full details are in [results.md](results.md).
 
-<!-- TODO: fill from the "Wrong cases" tables in results.md -->
+1. **Sarcasm (H12, both models).** "sure lol" in reply to a silly proposal was read as real agreement, with confidence of 0.98 (120b) and 0.95 (20b). The model does not treat "lol" as a sign the reply is a joke.
+2. **Two competing proposals (H18, 120b).** One person suggested Thekkady for day 2 and another suggested Vagamon. A bare "fine" was taken as agreement with the latest one. The right move is to ask which one.
+3. **Two changes in one reply (H19, 120b).** "both fine by me" was correctly seen as a decision. The output holds only one target item, so it came out as a new item instead of day 3 and day 4. This is a limit of the output format, not the model.
+4. **Dinner is not in the plan (H13, 20b).** A genuine agreement to book a dinner table was treated as a new itinerary item. The line between itinerary and logistics is fuzzy.
+5. **"ok" to the wrong question (H14, 20b).** The "ok" answered a request for the hotel address. The model linked it to an older proposal about day 4.
+6. **The real chat (H20, 20b).** Dad said "No need, let's go to some monastery" and I replied "Fine". The 20b model called this an unresolved conflict and missed it, with 0.9 confidence.
+
+**The pattern.** 120b never missed a real decision. Its errors were false alarms or format limits, which cost one dismissible suggestion card. 20b missed the real chat, the one fully independent case. That is the main reason 120b stays the default.
 
 ## Trade-offs
 

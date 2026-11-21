@@ -1,0 +1,231 @@
+{
+  "plans": {
+    "sikkim": {
+      "day_1": {"value": "Arrive Gangtok, MG Marg walk", "added_by": "Priya"},
+      "day_2": {"value": "Trek in Yuksom", "added_by": "Priya"},
+      "day_3": {"value": "Tsomgo Lake day trip", "added_by": "Rahul"},
+      "day_4": {"value": "Fly out from Bagdogra", "added_by": "Ananya"}
+    },
+    "goa": {
+      "day_1": {"value": "North Goa beaches - Baga and Anjuna", "added_by": "Kabir"},
+      "day_2": {"value": "Old Goa churches tour", "added_by": "Ananya"},
+      "day_3": {"value": "Dudhsagar Falls trip", "added_by": "Kabir"},
+      "dinner_day_2": {"value": "Seafood at Fisherman's Wharf", "added_by": "Rahul"}
+    }
+  },
+  "cases": [
+    {"id": 1, "category": "decision", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "day 2 trek feels like too much after the drive"},
+                 {"sender": "Rahul", "text": "no need, let's do a monastery instead. Rumtek?"}],
+     "newest": {"sender": "Priya", "text": "fine"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": 2, "category": "decision", "plan": "goa",
+     "history": [{"sender": "Kabir", "text": "Dudhsagar is closed during monsoon apparently"},
+                 {"sender": "Ananya", "text": "let's do the spice plantation on day 3 then"}],
+     "newest": {"sender": "Kabir", "text": "ok let's do that"},
+     "expected": {"is_decision": true, "target_item": "day_3"}},
+
+    {"id": 3, "category": "decision", "plan": "sikkim",
+     "history": [{"sender": "Ananya", "text": "Rumtek monastery on day 2 instead of the trek?"}],
+     "newest": {"sender": "Rahul", "text": "chalo monastery then"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": 4, "category": "decision", "plan": "goa",
+     "history": [{"sender": "Rahul", "text": "churches all of day 2 sounds boring, can we do the Fontainhas heritage walk instead"}],
+     "newest": {"sender": "Ananya", "text": "haan theek hai"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": 5, "category": "decision", "plan": "sikkim",
+     "history": [{"sender": "Kabir", "text": "Tsomgo needs permits, we won't get them in time"},
+                 {"sender": "Kabir", "text": "let's swap day 3 to Hanuman Tok and Ganesh Tok"}],
+     "newest": {"sender": "Rahul", "text": "yes done"},
+     "expected": {"is_decision": true, "target_item": "day_3"}},
+
+    {"id": 6, "category": "decision", "plan": "goa",
+     "history": [{"sender": "Kabir", "text": "Fisherman's Wharf is overrated, let's do Thalassa for dinner on day 2"}],
+     "newest": {"sender": "Rahul", "text": "sure, Thalassa it is"},
+     "expected": {"is_decision": true, "target_item": "dinner_day_2"}},
+
+    {"id": 7, "category": "decision", "plan": "sikkim",
+     "history": [{"sender": "Priya", "text": "flight from Bagdogra is 9k each, train from NJP is way cheaper"},
+                 {"sender": "Priya", "text": "let's take the train from NJP on day 4?"}],
+     "newest": {"sender": "Ananya", "text": "yeah makes sense, book it"},
+     "expected": {"is_decision": true, "target_item": "day_4"}},
+
+    {"id": 8, "category": "decision", "plan": "goa",
+     "history": [{"sender": "Ananya", "text": "let's skip Baga, too crowded. Palolem instead on day 1?"}],
+     "newest": {"sender": "Kabir", "text": "👍"},
+     "expected": {"is_decision": true, "target_item": "day_1"}},
+
+    {"id": 9, "category": "decision", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "Yuksom is 6 hrs from Gangtok, can we do Pelling on day 2 instead?"},
+                 {"sender": "Priya", "text": "hmm"}],
+     "newest": {"sender": "Priya", "text": "ok fair, Pelling it is"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": 10, "category": "decision", "plan": "sikkim",
+     "history": [{"sender": "Ananya", "text": "can we just chill in Gangtok on day 1, skip MG Marg, everyone will be dead after the flight"}],
+     "newest": {"sender": "Priya", "text": "pakka, let's rest"},
+     "expected": {"is_decision": true, "target_item": "day_1"}},
+
+    {"id": 11, "category": "decision", "plan": "goa",
+     "history": [{"sender": "Ananya", "text": "how about a sunset cruise on the Mandovi for dinner on day 2 instead of the wharf"}],
+     "newest": {"sender": "Kabir", "text": "works for me"},
+     "expected": {"is_decision": true, "target_item": "dinner_day_2"}},
+
+    {"id": 12, "category": "decision", "plan": "goa",
+     "history": [{"sender": "Kabir", "text": "Palolem instead of Baga on day 1?"}],
+     "newest": {"sender": "Rahul", "text": "ok"},
+     "expected": {"is_decision": true, "target_item": "day_1"}},
+
+    {"id": 13, "category": "decision", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "the Yuksom trek guide can't make it on day 2"},
+                 {"sender": "Ananya", "text": "ugh. Rumtek then?"}],
+     "newest": {"sender": "Rahul", "text": "Booked Rumtek tickets for day 2 and cancelled the trek guide, we're set"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": 14, "category": "false_alarm", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "it might rain on day 2"}],
+     "newest": {"sender": "Priya", "text": "fine, I'll check the weather"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 15, "category": "false_alarm", "plan": "goa",
+     "history": [{"sender": "Kabir", "text": "where are you guys"}],
+     "newest": {"sender": "Ananya", "text": "ok I'm boarding now"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 16, "category": "false_alarm", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "Priya you're carrying all the snacks btw"}],
+     "newest": {"sender": "Priya", "text": "lol fine"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 17, "category": "false_alarm", "plan": "goa",
+     "history": [{"sender": "Ananya", "text": "send pics from the beach!"}],
+     "newest": {"sender": "Kabir", "text": "ok"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 18, "category": "false_alarm", "plan": "sikkim",
+     "history": [{"sender": "Ananya", "text": "anyone up?"}],
+     "newest": {"sender": "Rahul", "text": "brb"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 19, "category": "false_alarm", "plan": "goa",
+     "history": [{"sender": "Rahul", "text": "my phone is at 5%"}],
+     "newest": {"sender": "Rahul", "text": "who has the charger"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 20, "category": "false_alarm", "plan": "sikkim",
+     "history": [{"sender": "Kabir", "text": "Rahul just fell asleep in the cab with his mouth open"}],
+     "newest": {"sender": "Ananya", "text": "😂😂😂"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 21, "category": "false_alarm", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "the Yuksom trek is going to be amazing"}],
+     "newest": {"sender": "Ananya", "text": "yes!! so excited"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 22, "category": "false_alarm", "plan": "goa",
+     "history": [{"sender": "Rahul", "text": "reached the hotel"}],
+     "newest": {"sender": "Kabir", "text": "nice"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 23, "category": "false_alarm", "plan": "sikkim",
+     "history": [{"sender": "Ananya", "text": "can someone share the hotel booking pdf"}],
+     "newest": {"sender": "Priya", "text": "sure, sending"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 24, "category": "false_alarm", "plan": "goa",
+     "history": [{"sender": "Kabir", "text": "the beaches yesterday were so good"}],
+     "newest": {"sender": "Rahul", "text": "agreed, Anjuna was the best day so far"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 25, "category": "false_alarm", "plan": "goa",
+     "history": [],
+     "newest": {"sender": "Ananya", "text": "good morning everyone"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 26, "category": "false_alarm", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "my knees are already hurting"}],
+     "newest": {"sender": "Rahul", "text": "should we do a monastery instead of the trek on day 2?"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 27, "category": "messy_sarcasm", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "let's skip Tsomgo and just sit in the hotel all day 3"}],
+     "newest": {"sender": "Kabir", "text": "wow great idea, let's fly all the way to Sikkim to watch Netflix 🙄"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 28, "category": "messy_sarcasm", "plan": "goa",
+     "history": [{"sender": "Ananya", "text": "let's replace Dudhsagar with a 5am beach yoga session"}],
+     "newest": {"sender": "Kabir", "text": "yeah sure, can't wait to wake up at 4 😑"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 29, "category": "messy_sarcasm", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "monastery instead of the trek on day 2? my knees are done"}],
+     "newest": {"sender": "Priya", "text": "oh fine, whatever you guys want"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": 30, "category": "messy_partial", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "let's do Rumtek instead of the Yuksom trek on day 2"},
+                 {"sender": "Priya", "text": "no way, the trek is the whole reason I'm coming"}],
+     "newest": {"sender": "Ananya", "text": "fine by me"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 31, "category": "messy_partial", "plan": "sikkim",
+     "history": [{"sender": "Ananya", "text": "can we swap day 3 Tsomgo for Hanuman Tok?"},
+                 {"sender": "Kabir", "text": "ok"}],
+     "newest": {"sender": "Rahul", "text": "wait let me check first"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 32, "category": "messy_partial", "plan": "goa",
+     "history": [{"sender": "Rahul", "text": "Thalassa for dinner on day 2 instead of the wharf?"},
+                 {"sender": "Kabir", "text": "fine"}],
+     "newest": {"sender": "Ananya", "text": "hmm not sure, Thalassa is really pricey"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 33, "category": "messy_hinglish", "plan": "goa",
+     "history": [{"sender": "Kabir", "text": "bhai Dudhsagar ke jagah Divar island chalein day 3?"}],
+     "newest": {"sender": "Ananya", "text": "sahi hai, done"},
+     "expected": {"is_decision": true, "target_item": "day_3"}},
+
+    {"id": 34, "category": "messy_hinglish", "plan": "sikkim",
+     "history": [{"sender": "Kabir", "text": "trek cancel karte hain, day 2 ko Rumtek chalte hain"}],
+     "newest": {"sender": "Ananya", "text": "haan chalo"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": 35, "category": "messy_hinglish", "plan": "goa",
+     "history": [{"sender": "Rahul", "text": "Baga mein bahut bheed hai, Palolem chalein day 1?"}],
+     "newest": {"sender": "Ananya", "text": "haan bhai, Palolem fix"},
+     "expected": {"is_decision": true, "target_item": "day_1"}},
+
+    {"id": 36, "category": "messy_hinglish", "plan": "goa",
+     "history": [{"sender": "Ananya", "text": "kal Dudhsagar jaana hai ya nahi?"}],
+     "newest": {"sender": "Kabir", "text": "dekhte hain"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 37, "category": "messy_hinglish", "plan": "sikkim",
+     "history": [{"sender": "Rahul", "text": "Tsomgo ke bajaye Nathula try karein?"}],
+     "newest": {"sender": "Priya", "text": "theek hai par permit lagega, pehle check karo"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 38, "category": "messy_not_in_plan", "plan": "sikkim",
+     "history": [{"sender": "Ananya", "text": "we should add a momo-making class somewhere in the trip"}],
+     "newest": {"sender": "Kabir", "text": "yes let's add it"},
+     "expected": {"is_decision": true, "target_item": null}},
+
+    {"id": 39, "category": "messy_not_in_plan", "plan": "goa",
+     "history": [{"sender": "Kabir", "text": "scooter rental, split 4 ways?"}],
+     "newest": {"sender": "Ananya", "text": "fine, split it"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 40, "category": "messy_not_in_plan", "plan": "sikkim",
+     "history": [{"sender": "Priya", "text": "everyone carry jackets, it's 5 degrees at Tsomgo"}],
+     "newest": {"sender": "Rahul", "text": "ok noted"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": 41, "category": "messy_partial", "plan": "sikkim",
+     "history": [{"sender": "Priya", "text": "train from NJP is way cheaper than flying from Bagdogra"}],
+     "newest": {"sender": "Priya", "text": "ok guys train from NJP on day 4 instead of the flight, final?"},
+     "expected": {"is_decision": false, "target_item": null}}
+  ]
+}

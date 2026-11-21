@@ -1,0 +1,154 @@
+{
+  "plans": {
+    "ladakh": {
+      "day_1": {"value": "Acclimatise in Leh, Shanti Stupa at sunset", "added_by": "Meera"},
+      "day_2": {"value": "Khardung La and Nubra Valley", "added_by": "Arjun"},
+      "day_3": {"value": "Pangong Lake overnight camp", "added_by": "Meera"},
+      "day_4": {"value": "Leh Palace and the main market", "added_by": "Sana"}
+    },
+    "kerala": {
+      "day_1": {"value": "Fort Kochi heritage walk", "added_by": "Dev"},
+      "day_2": {"value": "Munnar tea gardens", "added_by": "Nisha"},
+      "day_3": {"value": "Alleppey houseboat", "added_by": "Dev"},
+      "day_4": {"value": "Varkala cliff beach", "added_by": "Nisha"}
+    },
+    "real_yuksom": {
+      "day_2": "Trek in Yuksom"
+    }
+  },
+  "cases": [
+    {"id": "H01", "source": "synthetic_adversarial", "category": "hard_decision", "plan": "ladakh",
+     "note": "decision built up over three messages; no single obvious 'ok'",
+     "history": [{"sender": "Arjun", "text": "Khardung La is shut tomorrow for snow clearing"},
+                 {"sender": "Meera", "text": "Hemis monastery instead?"},
+                 {"sender": "Arjun", "text": "Hemis is a long drive tbh"},
+                 {"sender": "Sana", "text": "Thiksey then, it's way closer"}],
+     "newest": {"sender": "Arjun", "text": "yeah Thiksey works, day 2 sorted"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": "H02", "source": "synthetic_adversarial", "category": "hard_decision", "plan": "kerala",
+     "note": "Hinglish agreement with no English agreement word",
+     "history": [{"sender": "Nisha", "text": "Munnar mein landslide alert hai, day 2 ko Thekkady chalein?"}],
+     "newest": {"sender": "Dev", "text": "chalo wahi karte hai"},
+     "expected": {"is_decision": true, "target_item": "day_2"}},
+
+    {"id": "H03", "source": "synthetic_adversarial", "category": "hard_decision", "plan": "ladakh",
+     "note": "emoji is the only reply",
+     "history": [{"sender": "Meera", "text": "Pangong camps are sold out, let's do Tso Moriri on day 3 instead"}],
+     "newest": {"sender": "Sana", "text": "👍"},
+     "expected": {"is_decision": true, "target_item": "day_3"}},
+
+    {"id": "H04", "source": "synthetic_adversarial", "category": "hard_decision", "plan": "kerala",
+     "note": "agreement phrased as an instruction",
+     "history": [{"sender": "Dev", "text": "found a houseboat in Kumarakom for day 3, 2k cheaper than the Alleppey one and less crowded"}],
+     "newest": {"sender": "Nisha", "text": "ok book it"},
+     "expected": {"is_decision": true, "target_item": "day_3"}},
+
+    {"id": "H05", "source": "synthetic_adversarial", "category": "hard_decision", "plan": "ladakh",
+     "note": "Hindi-English mix in both proposal and agreement",
+     "history": [{"sender": "Sana", "text": "Leh Palace boring hai yaar, day 4 ko Magnetic Hill aur Sangam karte hain"}],
+     "newest": {"sender": "Arjun", "text": "haan yaar mast idea, final kar do"},
+     "expected": {"is_decision": true, "target_item": "day_4"}},
+
+    {"id": "H06", "source": "synthetic_adversarial", "category": "hard_decision", "plan": "kerala",
+     "note": "final ok from a different person than the proposer, after a hesitation",
+     "history": [{"sender": "Dev", "text": "Varkala is 4 hrs from Alleppey, can we do Marari beach on day 4 instead?"},
+                 {"sender": "Nisha", "text": "hmm let me think"},
+                 {"sender": "Dev", "text": "Marari is literally 20 min from the houseboat jetty"}],
+     "newest": {"sender": "Nisha", "text": "ok"},
+     "expected": {"is_decision": true, "target_item": "day_4"}},
+
+    {"id": "H07", "source": "synthetic_adversarial", "category": "false_alarm", "plan": "ladakh",
+     "note": "eye-roll: grudging, not genuine agreement",
+     "history": [{"sender": "Arjun", "text": "let's skip Shanti Stupa on day 1, it's just a lot of stairs"}],
+     "newest": {"sender": "Meera", "text": "fine whatever 🙄"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H08", "source": "synthetic_adversarial", "category": "false_alarm", "plan": "kerala",
+     "note": "agreement conditional on someone outside the chat",
+     "history": [{"sender": "Dev", "text": "should we stretch Munnar to two days and drop Varkala?"}],
+     "newest": {"sender": "Nisha", "text": "ok but ask mom first"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H09", "source": "synthetic_adversarial", "category": "false_alarm", "plan": "ladakh",
+     "note": "Hinglish 'theek hai' deferring the decision",
+     "history": [{"sender": "Sana", "text": "Pangong overnight might be too cold, day trip instead?"}],
+     "newest": {"sender": "Arjun", "text": "theek hai let's see tomorrow"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H10", "source": "synthetic_adversarial", "category": "false_alarm", "plan": "kerala",
+     "note": "an open proposal sits in history, but the 'ok' is about boarding",
+     "history": [{"sender": "Dev", "text": "should we swap day 1 and day 2?"},
+                 {"sender": "Nisha", "text": "where are you btw, gate is closing"}],
+     "newest": {"sender": "Dev", "text": "ok I'm boarding"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H11", "source": "synthetic_adversarial", "category": "false_alarm", "plan": "ladakh",
+     "note": "money decision that mentions a plan item",
+     "history": [{"sender": "Arjun", "text": "Nubra camp wants a 5k advance, who's paying"}],
+     "newest": {"sender": "Meera", "text": "fine, I'll pay this time"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H12", "source": "synthetic_adversarial", "category": "false_alarm", "plan": "kerala",
+     "note": "sarcastic 'sure lol' to an absurd proposal",
+     "history": [{"sender": "Dev", "text": "let's skip the houseboat and take a 6 hour bus to Kanyakumari on day 3"}],
+     "newest": {"sender": "Nisha", "text": "sure lol"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H13", "source": "synthetic_adversarial", "category": "false_alarm", "plan": "ladakh",
+     "note": "genuine agreement, but dinner is not an itinerary item",
+     "history": [{"sender": "Sana", "text": "dinner tonight at Bon Appetit?"}],
+     "newest": {"sender": "Meera", "text": "yes let's do that, book a table for 8"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H14", "source": "synthetic_adversarial", "category": "false_alarm", "plan": "kerala",
+     "note": "'ok' answers the unrelated question, not the older proposal",
+     "history": [{"sender": "Nisha", "text": "can we do Marari instead of Varkala on day 4?"},
+                 {"sender": "Dev", "text": "Nisha can you send me the hotel address"}],
+     "newest": {"sender": "Nisha", "text": "ok"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H15", "source": "synthetic_adversarial", "category": "conflict", "plan": "ladakh",
+     "note": "one person agrees, the item's owner has pushed back",
+     "history": [{"sender": "Sana", "text": "let's drop the Pangong overnight and do a day trip on day 3"},
+                 {"sender": "Meera", "text": "I'd rather keep the camp tbh, that's the whole point"}],
+     "newest": {"sender": "Arjun", "text": "ok I'm in for the day trip"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H16", "source": "synthetic_adversarial", "category": "conflict", "plan": "kerala",
+     "note": "agrees, then takes it back in the newest message",
+     "history": [{"sender": "Dev", "text": "Kumarakom instead of Alleppey for day 3?"},
+                 {"sender": "Nisha", "text": "ok sure"}],
+     "newest": {"sender": "Nisha", "text": "actually no wait, Alleppey has the better boats, keep it"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H17", "source": "synthetic_adversarial", "category": "conflict", "plan": "ladakh",
+     "note": "agreement was retracted, then a third person says ok to the muddle",
+     "history": [{"sender": "Arjun", "text": "day 4 Magnetic Hill instead of Leh Palace?"},
+                 {"sender": "Sana", "text": "ok"},
+                 {"sender": "Sana", "text": "hmm wait no, the palace is the one thing I really wanted"}],
+     "newest": {"sender": "Meera", "text": "ok"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H18", "source": "synthetic_adversarial", "category": "conflict", "plan": "kerala",
+     "note": "two competing proposals for the same slot; 'fine' doesn't say which",
+     "history": [{"sender": "Dev", "text": "Munnar's flooded, let's do Thekkady on day 2"},
+                 {"sender": "Nisha", "text": "or Vagamon on day 2? less touristy"}],
+     "newest": {"sender": "Ravi", "text": "fine"},
+     "expected": {"is_decision": false, "target_item": null}},
+
+    {"id": "H19", "source": "synthetic_adversarial", "category": "conflict", "plan": "ladakh",
+     "note": "two changes proposed at once and both accepted; either target counts",
+     "history": [{"sender": "Meera", "text": "two changes: Tso Moriri instead of Pangong on day 3, and Hemis instead of Leh Palace on day 4"}],
+     "newest": {"sender": "Arjun", "text": "both fine by me"},
+     "expected": {"is_decision": true, "target_item": ["day_3", "day_4"]}},
+
+    {"id": "H20", "source": "real", "category": "real", "plan": "real_yuksom",
+     "note": "from Ameesh's own testing: trek -> monastery",
+     "history": [{"sender": "Ameesh", "text": "@Mojo for day 2 I want to go trekking"},
+                 {"sender": "Mojo", "text": "Done! Added a trek in Yuksom to day 2."},
+                 {"sender": "Dad", "text": "No need, let's go to some monastery"}],
+     "newest": {"sender": "Ameesh", "text": "Fine"},
+     "expected": {"is_decision": true, "target_item": "day_2"}}
+  ]
+}
